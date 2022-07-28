@@ -35,3 +35,12 @@ Learn about typescript and SOLID typescript. Understanding how it works, and be 
    - in Zoo class changed generic object(line 8,10 & 14) typings to "Animal" to fix "property x does not exist on value of type"
 
 3. 2.L
+
+
+
+
+
+
+
+
+![to return to javascript](images/meme.jpg)
