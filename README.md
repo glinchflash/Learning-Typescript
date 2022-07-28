@@ -29,6 +29,7 @@ Learn about typescript and SOLID typescript. Understanding how it works, and be 
    - changed in the query selector to do "animal.sound"
    - added new class Meerkat
    - deleted all classes besides zoo and made 1 Animal class requiring type and sound as parameters so I can make multiple animal objects with different types(species) and sounds
+   - Classes Cat, Dog, Parrot, Meerkat extending from class Animal
    - decided to make seperate files for every Class besides Zoo
    - refactored it to seperate files and import/exported them
    - in Zoo class changed generic object(line 8,10 & 14) typings to "Animal" to fix "property x does not exist on value of type"
