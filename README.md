@@ -8,7 +8,7 @@ Learn about typescript and SOLID typescript. Understanding how it works, and be 
 ## exercise progress
 - [x] 0.S
   - extra challenge still to do
-- [ ] 1.0
+- [x] 1.0
 - [ ] 2.L
 - [ ] 3.I
 - [ ] 4.D
