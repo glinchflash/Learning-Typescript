@@ -5,13 +5,13 @@ import {Parrot} from "./models/Parrot";
 import {Meerkat} from "./models/Meerkat";
 
 class Zoo {
-    private _animals: Array<Animal> = new Array<Animal>();
+    private _animals: Array<Animal> = new Array<Animal>(); //original code: private _animals: Array <object> = new Array<object>()
 
-    public addAnimal(animal: Animal) {
+    public addAnimal(animal: Animal) { // original code: public addAnmial(animal; Object)
         this._animals.push(animal);
     }
 
-    get animals(): Array<Object> {
+    get animals(): Array<Animal> { //original code: get animals()= Array<object>
         return this._animals;
     }
 
