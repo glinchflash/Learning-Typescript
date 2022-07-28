@@ -41,6 +41,6 @@ Learn about typescript and SOLID typescript. Understanding how it works, and be 
 
 
 
-
-
+if you want to go back to javascript   
+🠋 🠋 🠋 🠋 🠋 🠋 🠋 🠋 🠋 🠋 🠋 🠋 🠋 🠋 🠋 🠋 🠋 🠋 🠋 
 ![to return to javascript](images/meme.jpg)
