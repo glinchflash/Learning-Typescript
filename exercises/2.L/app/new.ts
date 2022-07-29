@@ -1,7 +1,7 @@
 
-import {FixedDiscount} from "./models/FixedDiscount.js";
-import {VariableDiscount} from "./models/VariableDiscount.js";
-import {NoDiscount} from "./models/NoDiscount.js";
+import {FixedDiscount} from "./models/FixedDiscount";
+import {VariableDiscount} from "./models/VariableDiscount";
+import {NoDiscount} from "./models/NoDiscount";
 
 class Product {
     private _name: string;

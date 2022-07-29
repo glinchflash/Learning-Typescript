@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const FixedDiscount_js_1 = require("./models/FixedDiscount.js");
-const VariableDiscount_js_1 = require("./models/VariableDiscount.js");
-const NoDiscount_js_1 = require("./models/NoDiscount.js");
+const FixedDiscount_1 = require("./models/FixedDiscount");
+const VariableDiscount_1 = require("./models/VariableDiscount");
+const NoDiscount_1 = require("./models/NoDiscount");
 class Product {
     constructor(name, price, discount) {
         this._name = name;
@@ -40,10 +40,10 @@ class shoppingBasket {
     }
 }
 let cart = new shoppingBasket();
-cart.addProduct(new Product('Chair', 25, new FixedDiscount_js_1.FixedDiscount(10)));
+cart.addProduct(new Product('Chair', 25, new FixedDiscount_1.FixedDiscount(10)));
 //cart.addProduct(new Product('Chair', 25, new Discount("fixed", -10)));
-cart.addProduct(new Product('Table', 50, new VariableDiscount_js_1.VariableDiscount(25)));
-cart.addProduct(new Product('Bed', 100, new NoDiscount_js_1.NoDiscount()));
+cart.addProduct(new Product('Table', 50, new VariableDiscount_1.VariableDiscount(25)));
+cart.addProduct(new Product('Bed', 100, new NoDiscount_1.NoDiscount()));
 const tableElement = document.querySelector('#cart tbody');
 cart.products.forEach((product) => {
     let tr = document.createElement('tr');
