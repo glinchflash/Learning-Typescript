@@ -1,12 +1,21 @@
-let divide = 100;
+
+
 export class VariableDiscount {
-    constructor(value) {
+
+    private _value: number;
+
+    constructor(value: number) {
         this._value = value;
     }
-    apply(price) {
+
+    apply(price: number): number {
+        let divide = 100;
         return (price - (price * this._value / divide));
     }
-    showCalculation(price) {
+
+    showCalculation(price: number): string {
         return price + " € -  " + this._value + "%";
+
     }
+
 }

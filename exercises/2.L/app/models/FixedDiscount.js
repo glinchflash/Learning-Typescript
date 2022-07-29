@@ -1,4 +1,7 @@
-export class FixedDiscount {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.FixedDiscount = void 0;
+class FixedDiscount {
     constructor(value) {
         this._value = value;
     }
@@ -9,3 +12,4 @@ export class FixedDiscount {
         return price + "€ -  " + this._value + "€ (min 0 €)";
     }
 }
+exports.FixedDiscount = FixedDiscount;

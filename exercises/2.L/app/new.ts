@@ -1,6 +1,7 @@
-import {FixedDiscount} from "./models/FixedDiscount";
-import {VariableDiscount} from "./models/VariableDiscount";
-import {NoDiscount} from "./models/NoDiscount";
+
+import {FixedDiscount} from "./models/FixedDiscount.js";
+import {VariableDiscount} from "./models/VariableDiscount.js";
+import {NoDiscount} from "./models/NoDiscount.js";
 
 class Product {
     private _name: string;
@@ -55,7 +56,7 @@ cart.addProduct(new Product('Chair', 25, new FixedDiscount( 10)));
 cart.addProduct(new Product('Table', 50, new VariableDiscount(25)));
 cart.addProduct(new Product('Bed', 100, new NoDiscount()));
 
-const tableElement = document.querySelector('#cart tbody');
+const tableElement = <HTMLTableElement> document.querySelector('#cart tbody');
 
 cart.products.forEach((product: Product) => {
     let tr = document.createElement('tr');
