@@ -1,58 +1,13 @@
-//This is called a Union, the discountType can only contain the following 2 values:
-// type discountType = "variable" | "fixed" | "none";
-let divide = 100;
-
-class variableDiscount {
-    private _value: number;
-
-    constructor(value: number) {
-        this._value = value;
-    }
-
-    apply(price: number): number {
-        return (price - (price * this._value / divide));
-    }
-
-    showCalculation(price: number): string {
-        return price + " € -  " + this._value + "%";
-
-    }
-
-}
-
-class fixedDiscount{
-    private _value:number;
-
-    constructor(value : number) {
-        this._value = value;
-    }
-
-    apply(price : number) : number {
-
-            return Math.max(0, price - this._value);
-    }
-    showCalculation(price : number) : string {
-            return price + "€ -  "+ this._value +"€ (min 0 €)";
-    }
-}
-
-class noDiscount {
-    apply(price : number) : number {
-            return price;
-    }
-    showCalculation(price : number) : string {
-            return "No discount";
-    }
-}
-
-
+import {FixedDiscount} from "./models/FixedDiscount";
+import {VariableDiscount} from "./models/VariableDiscount";
+import {NoDiscount} from "./models/NoDiscount";
 
 class Product {
     private _name: string;
     private _price: number;
     private _discount;
 
-    constructor(name: string, price: number, discount) {
+    constructor(name: string, price: number, discount: FixedDiscount | VariableDiscount | NoDiscount) {
         this._name = name;
         this._price = price;
         this._discount = discount;
@@ -95,10 +50,10 @@ class shoppingBasket {
 }
 
 let cart = new shoppingBasket();
-cart.addProduct(new Product('Chair', 25, new fixedDiscount( 10)));
+cart.addProduct(new Product('Chair', 25, new FixedDiscount( 10)));
 //cart.addProduct(new Product('Chair', 25, new Discount("fixed", -10)));
-cart.addProduct(new Product('Table', 50, new variableDiscount(25)));
-cart.addProduct(new Product('Bed', 100, new noDiscount()));
+cart.addProduct(new Product('Table', 50, new VariableDiscount(25)));
+cart.addProduct(new Product('Bed', 100, new NoDiscount()));
 
 const tableElement = document.querySelector('#cart tbody');
 

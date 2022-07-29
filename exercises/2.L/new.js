@@ -1,104 +1,51 @@
-//This is called a Union, the discountType can only contain the following 2 values:
-// type discountType = "variable" | "fixed" | "none";
-var divide = 100;
-var variableDiscount = /** @class */ (function () {
-    function variableDiscount(value) {
-        this._value = value;
-    }
-    variableDiscount.prototype.apply = function (price) {
-        return (price - (price * this._value / divide));
-    };
-    variableDiscount.prototype.showCalculation = function (price) {
-        return price + " € -  " + this._value + "%";
-    };
-    return variableDiscount;
-}());
-var fixedDiscount = /** @class */ (function () {
-    function fixedDiscount(value) {
-        this._value = value;
-    }
-    fixedDiscount.prototype.apply = function (price) {
-        return Math.max(0, price - this._value);
-    };
-    fixedDiscount.prototype.showCalculation = function (price) {
-        return price + "€ -  " + this._value + "€ (min 0 €)";
-    };
-    return fixedDiscount;
-}());
-var noDiscount = /** @class */ (function () {
-    function noDiscount() {
-    }
-    noDiscount.prototype.apply = function (price) {
-        return price;
-    };
-    noDiscount.prototype.showCalculation = function (price) {
-        return "No discount";
-    };
-    return noDiscount;
-}());
-var Product = /** @class */ (function () {
-    function Product(name, price, discount) {
+import { FixedDiscount } from "./models/FixedDiscount";
+import { VariableDiscount } from "./models/VariableDiscount";
+import { NoDiscount } from "./models/NoDiscount";
+class Product {
+    constructor(name, price, discount) {
         this._name = name;
         this._price = price;
         this._discount = discount;
     }
-    Object.defineProperty(Product.prototype, "name", {
-        get: function () {
-            return this._name;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(Product.prototype, "discount", {
-        get: function () {
-            return this._discount;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(Product.prototype, "originalPrice", {
-        get: function () {
-            return this._price;
-        },
-        enumerable: false,
-        configurable: true
-    });
+    get name() {
+        return this._name;
+    }
+    get discount() {
+        return this._discount;
+    }
+    get originalPrice() {
+        return this._price;
+    }
     //The reason we call this function "calculateX" instead of using a getter on Price is because names communicate a lot of meaning between programmers.
     //most programmers would assume a getPrice() would be a simple display of a property that is already calculated, but in fact this function does a (more expensive) operation to calculate on the fly.
-    Product.prototype.calculatePrice = function () {
+    calculatePrice() {
         return this._discount.apply(this._price);
-    };
-    Product.prototype.showCalculation = function () {
+    }
+    showCalculation() {
         return this._discount.showCalculation(this._price);
-    };
-    return Product;
-}());
-var shoppingBasket = /** @class */ (function () {
-    function shoppingBasket() {
+    }
+}
+class shoppingBasket {
+    constructor() {
         //this array only accepts Product objects, nothing else
         this._products = [];
     }
-    Object.defineProperty(shoppingBasket.prototype, "products", {
-        get: function () {
-            return this._products;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    shoppingBasket.prototype.addProduct = function (product) {
+    get products() {
+        return this._products;
+    }
+    addProduct(product) {
         this._products.push(product);
-    };
-    return shoppingBasket;
-}());
-var cart = new shoppingBasket();
-cart.addProduct(new Product('Chair', 25, new fixedDiscount(10)));
+    }
+}
+let cart = new shoppingBasket();
+cart.addProduct(new Product('Chair', 25, new FixedDiscount(10)));
 //cart.addProduct(new Product('Chair', 25, new Discount("fixed", -10)));
-cart.addProduct(new Product('Table', 50, new variableDiscount(25)));
-cart.addProduct(new Product('Bed', 100, new noDiscount()));
-var tableElement = document.querySelector('#cart tbody');
-cart.products.forEach(function (product) {
-    var tr = document.createElement('tr');
-    var td = document.createElement('td');
+cart.addProduct(new Product('Table', 50, new VariableDiscount(25)));
+cart.addProduct(new Product('Bed', 100, new NoDiscount()));
+const tableElement = document.querySelector('#cart tbody');
+cart.products.forEach((product) => {
+    let tr = document.createElement('tr');
+    let td = document.createElement('td');
     td.innerText = product.name;
     tr.appendChild(td);
     td = document.createElement('td');
