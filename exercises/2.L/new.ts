@@ -17,7 +17,7 @@ class Product {
         return this._name;
     }
 
-    get discount(): object {
+    get discount(): FixedDiscount | VariableDiscount | NoDiscount {
         return this._discount;
     }
 
@@ -77,6 +77,7 @@ cart.products.forEach((product: Product) => {
     tr.appendChild(td);
 
     tableElement.appendChild(tr);
+
 });
 
 
