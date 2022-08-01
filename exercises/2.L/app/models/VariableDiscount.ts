@@ -1,6 +1,5 @@
-
-
-export class VariableDiscount {
+import {Discount} from "./Interface";
+export class VariableDiscount implements Discount{
 
     private _value: number;
 

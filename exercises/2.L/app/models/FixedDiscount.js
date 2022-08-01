@@ -6,10 +6,11 @@ class FixedDiscount {
         this._value = value;
     }
     apply(price) {
-        return Math.max(0, price - this._value);
+        let divide = 100;
+        return (price - (price * this._value / divide));
     }
     showCalculation(price) {
-        return price + "€ -  " + this._value + "€ (min 0 €)";
+        return price + " € -  " + this._value + "%";
     }
 }
 exports.FixedDiscount = FixedDiscount;

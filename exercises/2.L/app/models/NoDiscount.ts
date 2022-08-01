@@ -1,5 +1,5 @@
-
-export class NoDiscount {
+import {Discount} from "./Interface";
+export class NoDiscount implements Discount{
     apply(price : number) : number {
         return price;
     }
