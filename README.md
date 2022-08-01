@@ -35,9 +35,61 @@ Learn about typescript and SOLID typescript. Understanding how it works, and be 
    - in Zoo class changed generic object(line 8,10 & 14) typings to "Animal" to fix "property x does not exist on value of type"
 
 3. 2.L
+   - made 3 new classes for, one for each kind of discount
+   - dropped the original "discount" class
+   - made a folder models, and created 3 files , one for each kind of discount
+   - refactored classes to newly created files in models folder
+     - this created issues with the im -/exporting 
+     - spend multiple hours trying to fix this some of these along side the coaches
+     - issues lie in problems with global config, and problems with typescript installment
+     - due to not being able to fix the typescript installment issue (everything works fine besides the im/exporting)
+     - went for the webpack solution
+       - installed webpack through terminal
+       - created an app folder and moved models and new.ts/js in the app folder
+       - setup webpack config 
+       - changed script tag in html to new created folder by webpack called dist
 
 
 
+
+#### webpack
+Webpack compiles my .ts files to .js and bundles all the .ts files in the "app" folder to 1 big .js file called "app-bundle.js"
+to install webpack in your project:
+1. in your terminal go to your project folder (in case of multiple exercises/project in your folder, go to specific exercise folder)
+2. enter following command in terminal: ```npm install --save-dev webpack webpack-cli typescript ts-loader```
+3. followed by this command in terminal: ```touch webpack.config.js ```
+4. create a "app" folder (commonly used name for this)
+5. drop all models/.ts files inside app folder
+6. inside webpack.config.js do the following
+```ts
+const path = require('path');
+
+module.exports = {
+   mode: "development",
+   devtool: "inline-source-map",
+   entry: {
+      main: "./app/new.ts",
+   },
+   output: {
+      path: path.resolve(__dirname, './dist'),
+      filename: "app-bundle.js" // <--- Will be compiled to this single file
+   },
+   resolve: {
+      extensions: [".ts", ".tsx", ".js"],
+   },
+   module: {
+      rules: [
+         {
+            test: /\.tsx?$/,
+            loader: "ts-loader"
+         }
+      ]
+   }
+}
+```
+7. change "entry:{ main: lorem ipsum}" to your app/*filename.ts*
+8. in terminal: ```npx webpack -w``` to auto-compile on change (will make webpack watch remove "-w" to compile once)
+9. change script tag in html to src ```dist/app-bundle.js```
 
 
 
