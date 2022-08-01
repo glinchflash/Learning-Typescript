@@ -3,10 +3,12 @@ import {FixedDiscount} from "./models/FixedDiscount";
 import {VariableDiscount} from "./models/VariableDiscount";
 import {NoDiscount} from "./models/NoDiscount";
 
+
 class Product {
     private _name: string;
     private _price: number;
     private _discount;
+
 
     constructor(name: string, price: number, discount: FixedDiscount | VariableDiscount | NoDiscount) {
         this._name = name;
