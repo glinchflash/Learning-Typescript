@@ -4,6 +4,8 @@ import {GoogleAuth} from "../interfaces/Google";
 
 export class Admin implements PassAuth, FacebookAuth, GoogleAuth {
 
+    private _password: string = "admin";
+
     setGoogleToken(token: string): void {
         throw new Error('Function not supported for admins');
     }
@@ -17,7 +19,6 @@ export class Admin implements PassAuth, FacebookAuth, GoogleAuth {
         return false;
     }
 
-    private _password: string = "admin";
 
     checkPassword(password: string): boolean {
         return (password === this._password);
