@@ -4,13 +4,9 @@ import {PassAuth} from "../interfaces/Password";
 
 export class User implements GoogleAuth, FacebookAuth, PassAuth {
     private _password: string= 'user';
-    private _facebookToken: string;
-    private _googleToken: string;
+    private _facebookToken: string = "";
+    private _googleToken: string = "";
 
-    constructor(facebook: string, google: string) {
-        this._facebookToken = facebook;
-        this._googleToken = google;
-    }
 
     checkGoogleLogin(token: string) {
         // return "this will not work";
