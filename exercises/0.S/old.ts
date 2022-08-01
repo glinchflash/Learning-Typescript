@@ -121,6 +121,7 @@ engineToggleElement.addEventListener('click', () => {
     car.turnEngineOn();
 });
 
+// @ts-ignore (to stop errors while compiling, new version has this fixed)
 addFuelForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
