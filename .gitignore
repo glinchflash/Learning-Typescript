@@ -3,6 +3,5 @@ package.json
 package-lock.json
 node_modules
 tsconfig.json
-dist
 webpack.config.js
 webpack commands.txt
