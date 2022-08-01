@@ -48,7 +48,11 @@ Learn about typescript and SOLID typescript. Understanding how it works, and be 
        - created an app folder and moved models and new.ts/js in the app folder
        - setup webpack config 
        - changed script tag in html to new created folder by webpack called dist
-
+     - created a new file in models called "Interface" 
+     - exported the interface
+     - added the functions apply and showCalculations to the new interface
+     - implemented the interface too the 3 classes (Fixed,Variable and No discount)
+     - recompiled with webpack
 
 
 
