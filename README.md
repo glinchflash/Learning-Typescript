@@ -63,6 +63,12 @@ Learn about typescript and SOLID typescript. Understanding how it works, and be 
    - instead of user being a guest(userClass) or a admin (Admin class), user now could also be a google bot 
    - switch statement to check if user is guest or admin
    - if check to let google bot login
+     - -[x] Extra challenge
+     - created new class called TokenInit with property to set/get Token
+     - imported where needed (user and Googlebot Classes)
+     - user and googlebot class now extend from token Init class
+     - changed methods from user and google bot according to changes made
+   
 5. 4.D  
 ---
 
