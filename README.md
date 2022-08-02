@@ -117,13 +117,14 @@ alter a few small things and done! YAAAAAY!
       then put all of these in 1 big box, so you can bring it along easily, but they don't get intertwined. So when you want to play with the lego, there is only lego there! Don't need marbles or monopoly money in your lego do we!
         <br><br>
 2. Abstraction
-      - Hiding away parts of the code, so you know it's doing something, but you don't know what it is doing and how it works (which isn't necessary either for this)
+      - Hiding away parts of the code, so you know it's doing something, but you don't know what it is doing and how it works (which isn't necessary either for this).
+        Having good structure,typing and good naming conventions, so it's clear which method is doing what, and we have to trust that it also does what it says it will do.
         - Child explanation: When we make coffee, we press the button on the espresso machine, we don't have any clue what it is doing inside , but we do know after a few minutes we will have coffee!
           <br><br>
 3. Inheritance
    - When creating classes(our blueprints) we can also make classes extend from others (making this the child from the original class). 
    When doing, so we can pass on the properties of the parent class but also give the child new properties of its own.
-      -. Child explanation: Tommy is a blond haired boy with a slightly pointed nose, his mother is blond haired as well, so he got it from her. While his father has a pointed nose so there he got his nose from!
+      - Child explanation: Tommy is a blond haired boy with a slightly pointed nose, his mother is blond haired as well, so he got it from her. While his father has a pointed nose so there he got his nose from!
            these traits (properties so to speak) he inherited from his parents, but Tommy knows how to play football while neither of his parents know  this is the trait(property) of himself.
      <br><br>
 4. Polymorphism
@@ -136,23 +137,26 @@ alter a few small things and done! YAAAAAY!
 ### SOLID
 1. Single responsibility principle
     - A class should only have one responsibility, example:
-        a user class could hold methods for changing credentials, checking credentials. But this breaks the single responsibility principle.
-        we should split this up into 2 classes, one for changing the credentials and one for checking them, so each class has only a single responsibility.
+        a user class could hold methods for changing credentials, checking credentials, login and routing to homepage. But this breaks the single responsibility principle.
+        we should split this up into multiple classes, one for changing and checking the credentials, one for the login functionality and one for routing to homepage, so each class has only a single responsibility.
       <br><br>
 2. Open-closed principle
    - A class should be open for extension but closed for modification. We should be able to add new data to our class, but nothing should be able to alter the code and structure of the class from the outside.
-     <br><br>
+     example: when we go to school we get lessons and teachings, we can't change the lessons or the teachings, but we can build upon them and use them to extend our knowledge of the subject.
+       <br><br>
 3. Liskov substitute principle
    - Classes can have subclasses(child Class) when we use this, the subclass has inherited properties/methods from its superclass(Parent Class).<br><br>
-        But sometimes this is incorrect (bird class with fly method, not all birds can fly).
-        So we follow the Single responsibility principle and make 2 super classes one for flying birds and one for swimming birds (methods), and create our subclasses accordingly.<br><br>
-        For the methods we say it needs a dependency (parameter) of which kind of bird, so only the subclass of said superclass will be able to use the method, but the superclass on its own can work as well.
-     <br><br>
+      For example when we have a Duck class which can swim/float on water, can quack, and looks like a duck we can interchange 2 subclasses 
+    1 being a real duck, second one being a rubber ducky (rubber ducky will have another property that it has a battery), they both have the same functionality and won't break the code
+   ![rubber duck meme](images/liskov%20duckmeme.png)   
+   <br><br>
 4. Interface segregation principle
     - Having 1 big interface is breaking the Single responsibility principle since it is most likely handling  more then one responsibility at once.
         By splitting up in to multiple small interfaces we can easily maintain our code and also have more readability.
         since most languages accept implementation of multiple interfaces to a single class, we don't have to create big beefy interfaces and lose track of which part is applicable for this class.
-        <br><br>
+        example: having 1 big class called bird, with the methods fly and swim while not all birds can fly/swim, this is against the single responsibility principble as well.
+        instead create 2 classes, (flyingBirds and SwimmingBirds) each with their respective method fly and swim. now we can create  birds that can fly or swim, or even that can do both.
+   <br><br>
 5. Dependency inversion principle
 ---
 if you want to go back to javascript   
