@@ -1,28 +1,27 @@
 import {GoogleAuth} from "../interfaces/Google";
 import {FacebookAuth} from "../interfaces/Facebook";
 import {PassAuth} from "../interfaces/Password";
-
-export class User implements GoogleAuth, FacebookAuth, PassAuth {
+import {TokenInit} from "./TokenInit";
+export class User extends TokenInit implements GoogleAuth, FacebookAuth, PassAuth {
     private _password: string= 'user';
-    private _facebookToken: string = "";
-    private _googleToken: string = "";
+
 
 
     checkGoogleLogin(token: string) {
         // return "this will not work";
-        return (token === this._googleToken);
+        return (token === this.token);
     }
 
     setGoogleToken(token: string) {
-        this._googleToken = token;
+        this.setToken(token);
     }
 
     getFacebookLogin(token: string) {
-        return (token === this._facebookToken);
+        return (token === this.token);
     }
 
     setFacebookToken(token: string) {
-        this._facebookToken = token;
+        this.setToken(token)
     }
 
     checkPassword(password: string): boolean {

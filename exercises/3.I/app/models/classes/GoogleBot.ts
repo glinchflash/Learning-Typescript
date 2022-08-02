@@ -1,14 +1,13 @@
 import {GoogleAuth} from "../interfaces/Google";
+import {TokenInit} from "./TokenInit";
 
-export class GoogleBot implements GoogleAuth{
-    private _googleToken: string = "";
-
+export class GoogleBot extends TokenInit implements GoogleAuth{
     checkGoogleLogin(token: string) {
-        return (token === this._googleToken);
+        return (token === this.token);
     }
 
     setGoogleToken(token: string) {
-        this._googleToken = token;
+        this.setToken(token);
     }
 
 }
