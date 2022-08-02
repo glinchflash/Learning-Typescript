@@ -7,12 +7,11 @@ export class FixedDiscount implements Discount{
     }
 
     apply(price: number): number {
-        let divide = 100;
-        return (price - (price * this._value / divide));
+        return Math.max(0, price - this._value);
     }
 
     showCalculation(price: number): string {
-        return price + " € -  " + this._value + "%";
+        return price + "€ -  "+ this._value +"€ (min 0 €)";
 
     }
 
