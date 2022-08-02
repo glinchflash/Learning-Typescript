@@ -54,8 +54,17 @@ Learn about typescript and SOLID typescript. Understanding how it works, and be 
      - added the functions apply and showCalculations to the new interface
      - implemented the interface to the 3 classes (Fixed,Variable and No discount)
      - recompiled with webpack
-
-
+4. 3.I
+   - made interfaces for google, password and facebook authentication all in separate file
+   - implemented correct interfaces to the correct class (user gets all, admin only gets password)
+   - refactored code so everything works just fine again
+   - added Google bot class and implemented google authentication
+   - refactored authentication part of code
+   - instead of user being a guest(userClass) or a admin (Admin class), user now could also be a google bot 
+   - switch statement to check if user is guest or admin
+   - if check to let google bot login
+5. 4.D  
+---
 
 #### webpack
 Webpack compiles my .ts files to .js and bundles all the .ts files in the "app" folder to 1 big .js file called "app-bundle.js"
