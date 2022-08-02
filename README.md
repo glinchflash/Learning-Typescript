@@ -1,6 +1,9 @@
 # Learning-Typescript
 ---
 
+![meme](images/parkour%20meme.png)
+
+
 ### Objective
 Learn about typescript and SOLID typescript. Understanding how it works, and be able to explain it as clear as possible.
 
