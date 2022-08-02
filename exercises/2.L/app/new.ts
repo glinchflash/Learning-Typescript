@@ -6,7 +6,7 @@ import {NoDiscount} from "./models/NoDiscount";
 class Product {
     private _name: string;
     private _price: number;
-    private _discount;
+    private _discount: FixedDiscount | VariableDiscount | NoDiscount;
 
 
     constructor(name: string, price: number, discount: FixedDiscount | VariableDiscount | NoDiscount) {
