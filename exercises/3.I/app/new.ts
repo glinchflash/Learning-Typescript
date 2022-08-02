@@ -33,8 +33,8 @@ document.querySelector('#login-form')!.addEventListener('submit', (event) => {
                     auth = user.checkPassword(passwordElement.value);
                     break;
                 case  typeFacebookElement.checked:
-                    auth = user.getFacebookLogin('secret_token_fb');
                     user.setFacebookToken('secret_token_fb');
+                    auth = user.getFacebookLogin('secret_token_fb');
                     break
                 case typeGoogleElement.checked:
                     user.setGoogleToken('secret_token_google');
@@ -43,20 +43,21 @@ document.querySelector('#login-form')!.addEventListener('submit', (event) => {
             }
             console.log(user);
             break;
-        case (!loginAsAdminElement.checked && typeGoogleElement.checked && passwordElement.value === ""):
-            user = new GoogleBot()
-            user.setGoogleToken('secret_token_google');
-            auth = user.checkGoogleLogin('secret_token_google');
-            console.log(user);
-            break;
     }
-
+    if (typeGoogleElement.checked && !loginAsAdminElement.checked){
+        let user = new GoogleBot();
+        user.setGoogleToken('secret_token_google');
+        auth = user.checkGoogleLogin('secret_token_google');
+        console.log(user);
+    }
 
     if (auth) {
         alert('login success');
     } else {
         alert('login failed');
     }
+
+
 });
 
 resetPasswordElement.addEventListener('click', (event) => {
