@@ -1,4 +1,3 @@
-
 import {FixedDiscount} from "./models/FixedDiscount";
 import {VariableDiscount} from "./models/VariableDiscount";
 import {NoDiscount} from "./models/NoDiscount";
