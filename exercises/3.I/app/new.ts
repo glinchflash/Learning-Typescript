@@ -28,16 +28,16 @@ document.querySelector('#login-form')!.addEventListener('submit', (event) => {
             break;
         case (!loginAsAdminElement.checked || passwordElement.value === "user"):
             user = new User();
-            user.setGoogleToken('secret_token_google');
-            user.setFacebookToken('secret_token_fb');
             switch (true) {
                 case typePasswordElement.checked:
                     auth = user.checkPassword(passwordElement.value);
                     break;
                 case  typeFacebookElement.checked:
                     auth = user.getFacebookLogin('secret_token_fb');
+                    user.setFacebookToken('secret_token_fb');
                     break
                 case typeGoogleElement.checked:
+                    user.setGoogleToken('secret_token_google');
                     auth = user.checkGoogleLogin('secret_token_google');
                     break;
             }
