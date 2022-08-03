@@ -14,7 +14,7 @@ Learn about typescript and SOLID typescript. Understanding how it works, and be 
 - [x] 1.0
 - [x] 2.L
 - [x] 3.I
-- [ ] 4.D
+- [x] 4.D
 ---
 
 
@@ -73,6 +73,12 @@ Learn about typescript and SOLID typescript. Understanding how it works, and be 
      - changed methods from user and google bot according to changes made
    
 5. 4.D  
+   - Created a CookingDevices interface with 3 methods (turn on, turn off and bake)
+   - created a class Gasoven and Stove and implement CookingDevices interface
+   - refactored turn on and turn off respectively for Gasoven and Stove
+   - refactored Restaurant to have 2nd parameter in constructor for which type of cooking device
+   - created models folder and made separate files for all classes and interface
+   
 ---
 
 #### webpack
@@ -176,6 +182,22 @@ alter a few small things and done! YAAAAAY!
         instead create 2 classes, (flyingBirds and SwimmingBirds) each with their respective method fly and swim. now we can create  birds that can fly or swim, or even that can do both.
    <br><br>
 5. Dependency inversion principle
+   - The Dependency Inversion Principle (DIP) states that high-level modules should not depend on low-level modules; both should depend on abstractions. Abstractions should not depend on details. Details should depend upon abstractions.
+   - to break this down:
+      1. Client: Your main class/code that runs the high-level module.
+      2. High-Level Modules: Interface/Abstraction that your client uses.
+      3. Low-Level Modules: Details of your interfaces/abstraction.
+     - Now this still sounds confusing right? let's break it down a bit easier
+      <br>
+     1. Client: You as the person driving the car.
+     2. High-Level Modules: The steering wheel and the gas/brake peddles.
+     3. Low-Level Modules: Engine
+   - Wouldn't want a engine that decides that pressing the brakes doubles the speed of the car right? and regardless of what changed in my engine, I as a driver still wanna be able to just drive my car and decide when to start,speed up/down or stop 
+   - to use the exercise as and example
+     1. Client: the restaurant that decides when to cook and what cooking device to use
+     2. High-Level Modules: The cooking devices interface that implements the turn on/off or the bake call
+     3. Low-Level Modules: the turn on/off and bake methods them self, they don't decide when they do what
+   - I remember it the best way as a hierarchy: Who controls what, which then against controls the next part
 ---
 if you want to go back to javascript   
 🠋 🠋 🠋 🠋 🠋 🠋 🠋 🠋 🠋 🠋 🠋 🠋 🠋 🠋 🠋 🠋 🠋 🠋 🠋 
