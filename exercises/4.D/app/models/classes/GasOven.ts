@@ -1,17 +1,17 @@
 import {CookingDevices} from "../iCookingDevices";
 
-export class GasOven implements CookingDevices {
+export class GasOven implements CookingDevices{
     private _isOn: boolean = false;
 
-    public turnOn() {
+    public turnOn():void {
         this.lightGas()
     }
 
-    public turnOff() {
+    public turnOff():void {
         this.extinguishGas()
     }
 
-    public bake(item: string) {
+    public bake(item: string):void {
         if (this._isOn) {
             setTimeout(function () {
                 document.getElementById('target')!.innerHTML += "<p>" + new Date().getHours() + ":" + new Date().getMinutes() + " : Now baking " + item + " !</p>";
