@@ -13,7 +13,7 @@ Learn about typescript and SOLID typescript. Understanding how it works, and be 
   - extra challenge still to do
 - [x] 1.0
 - [x] 2.L
-- [ ] 3.I
+- [x] 3.I
 - [ ] 4.D
 ---
 
